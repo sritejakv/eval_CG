@@ -1,0 +1,49 @@
+digraph G {
+concentrate = true;
+			subgraph legend{
+			rank = min;
+			label = "legend";
+			Legend [shape=none, margin=0, label = <
+				<table cellspacing="0" cellpadding="0" border="1"><tr><td>Code2flow Legend</td></tr><tr><td>
+				<table cellspacing="0">
+				<tr><td>Regular function</td><td width="50px"></td></tr>
+				<tr><td>Trunk function (nothing calls this)</td><td bgcolor='coral'></td></tr>
+				<tr><td>Leaf function (this calls nothing else)</td><td bgcolor='green'></td></tr>
+				<tr><td>Function call which returns no value</td><td>&#8594;</td></tr>
+				<tr><td>Function call returns some value</td><td><font color='blue'>&#8594;</font></td></tr>
+				</table></td></tr></table>
+				>];}node9 [splines=ortho label = "0: add_operation.(testscripts/add_operation module frame (runs on import))" shape = "rect" style = "rounded,filled" fillcolor = "coral" ];
+node2 [splines=ortho label = "2: AddNumbers.__init__" shape = "rect" style = "rounded,filled" fillcolor = "green" ];
+node3 [splines=ortho label = "6: AddNumbers.add" shape = "rect" style = "rounded,filled" fillcolor = "coral" ];
+node5 [splines=ortho label = "10: AddStrings.add" shape = "rect" style = "rounded,filled" fillcolor = "coral" ];
+node7 [splines=ortho label = "14: ConcatenateStrings.__init__" shape = "rect" style = "rounded,filled" fillcolor = "green" ];
+node8 [splines=ortho label = "18: ConcatenateStrings.add" shape = "rect" style = "rounded,filled" fillcolor = "coral" ];
+pyan_run_time [label="0.010080099105834961", style="invis"];
+node9 -> node2;
+node9 -> node7;
+subgraph clustertestscriptsadd_operation0{
+node9 node2 node3 node5 node7 node8 ;
+label="testscripts/add_operation";
+style=filled;
+color=black;
+graph[style=dotted];
+subgraph clusterAddNumbers1{
+node2 node3 ;
+label="AddNumbers";
+style=filled;
+color=black;
+graph[style=dotted];
+}subgraph clusterAddStrings4{
+node5 ;
+label="AddStrings";
+style=filled;
+color=black;
+graph[style=dotted];
+}subgraph clusterConcatenateStrings6{
+node7 node8 ;
+label="ConcatenateStrings";
+style=filled;
+color=black;
+graph[style=dotted];
+}};
+}
