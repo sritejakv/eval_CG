@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+ synthetic_test:
+  image: synthetic_test
+  build:
+    context: .
+    dockerfile: Dockerfile
+  volumes:
+    - ./docker_reports:/synthetic_test/CallgraphAnalyzer/reports
