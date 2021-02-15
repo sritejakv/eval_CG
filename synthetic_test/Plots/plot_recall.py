@@ -111,4 +111,4 @@ autolabel(ax1.patches, ax1)
 autolabel(ax2.patches, ax2)
 # autolabel(ax3.patches, ax3)
 
-fig.savefig('recall_construct_test.png', transparent=False, dpi=150, bbox_inches="tight")
+fig.savefig('recall_synthetic_test.png', transparent=False, dpi=150, bbox_inches="tight")

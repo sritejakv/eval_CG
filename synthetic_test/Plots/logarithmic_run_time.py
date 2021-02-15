@@ -211,4 +211,4 @@ ax.set_yticklabels(modified_ylabels)
 #Adding values next to the bars
 autolabel(ax.patches, ax)
 
-fig.savefig('log_runtime_construct_test.png', transparent=False, dpi=150, bbox_inches="tight")
+fig.savefig('log_runtime_synthetic_test.png', transparent=False, dpi=150, bbox_inches="tight")
