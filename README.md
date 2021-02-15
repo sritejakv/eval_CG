@@ -3,7 +3,7 @@ eval_CG
 
 This repository contains the artifacts corresponding to the publication - 
 
-    Qualitative and Quantitative Analysis of Callgraph Algorithms for Python. In Proceedings of the First International Conference on Code Quality (ICCQ ’21). To appear.
+```Sriteja Kummita, Goran Piskachev, Johannes Spaeth, and Eric Bodden. 2021. Qualitative and Quantitative Analysis of Callgraph Algorithms for Python. In Proceedings of the First International Conference on Code Quality (ICCQ ’21). To appear.```
 
 * Two experiments are described in the paper, namely, Synthetic Test and Real-world Test. Synthetic test focuses on evaluation the callgraph algorithms in terms of their quality and Real-world test focuses on quantitative evaluation of the callgraph algorithms.
 
