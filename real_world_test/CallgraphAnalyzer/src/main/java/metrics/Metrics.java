@@ -16,7 +16,7 @@ public class Metrics {
     private Set<CallEdge> tpEdges, fpEdges, fnEdges;
     private Set<CallEdge> totalDynamicEdges;
     private Set<CallEdge> totalStaticEdges;
-    private DecimalFormat decimalFormat = new DecimalFormat("0.00");
+    private DecimalFormat decimalFormat = new DecimalFormat("0.000");
 
     public Metrics(String cgFramework, String cgAlg, String lib){
         framework = cgFramework;
@@ -40,14 +40,14 @@ public class Metrics {
     }
 
     public void recordPrecision(){
-        Double denominator = Double.valueOf(tpEdges.size() + fpEdges.size());
-        precision = tpEdges.size() > 0 ? tpEdges.size() / denominator : 0.0;
+        Double denominator = Double.valueOf(decimalFormat.format(tpEdges.size() + fpEdges.size()));
+        precision = tpEdges.size() > 0 ? Double.valueOf(decimalFormat.format(tpEdges.size() / denominator)) : Double.valueOf(decimalFormat.format(0.0));
         precision = Double.valueOf(decimalFormat.format(precision));
     }
 
     public void recordRecall(){
-        Double denominator = Double.valueOf(tpEdges.size() + fnEdges.size());
-        recall = tpEdges.size() > 0 ? tpEdges.size() / denominator : 0.0;
+        Double denominator = Double.valueOf(decimalFormat.format(tpEdges.size() + fnEdges.size()));
+        recall = tpEdges.size() > 0 ? Double.valueOf(decimalFormat.format(tpEdges.size() / denominator)) : Double.valueOf(decimalFormat.format(0.0));
         recall = Double.valueOf(decimalFormat.format(recall));
     }
 

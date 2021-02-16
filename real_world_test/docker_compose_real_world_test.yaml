@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+ real_world_test:
+  image: real_world_test
+  build:
+    context: .
+    dockerfile: Dockerfile
+  volumes:
+    - ./docker_reports:/real_world_test/CallgraphAnalyzer/reports
