@@ -26,7 +26,7 @@ RUN cd jython3 && ant
 RUN mkdir -p $(mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout)/org/python/jython3/0.0.1-SNAPSHOT/
 RUN mv jython3/dist/jython-dev.jar $(mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout)/org/python/jython3/0.0.1-SNAPSHOT/jython3-0.0.1-SNAPSHOT.jar
 
-RUN sudo git clone https://github.com/sritejakv/ML.git
+RUN sudo git clone https://github.com/wala/ML.git
 RUN sudo chmod -R 777 ML
 
 RUN cd ML && mvn clean install -DskipTests
