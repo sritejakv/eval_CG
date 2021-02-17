@@ -1,5 +1,4 @@
 import adapters.*;
-import metrics.CompareFrameworks;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -70,35 +69,12 @@ public class Main {
         }
     }
 
-    private void compareFrameworks(List<FrameworkAdapter> adapters) throws FileNotFoundException {
-        List<String> walaAlgs = new ArrayList<String>() {{
-            add(Constants.WALA_VANILLA_ZERO_CFA_CALL_GRAPH);
-            add(Constants.WALA_ZERO_CFA_CALL_GRAPH);
-            add(Constants.WALA_ZERO_CONTAINER_CFA_CALL_GRAPH);
-            add(Constants.WALA_ZERO_ONE_CFA_CALL_GRAPH);
-            add(Constants.WALA_ZERO_ONE_CONTAINER_CFA_CALL_GRAPH);
-        }};
-
-        Iterator<FrameworkAdapter> it = adapters.iterator();
-        while (it.hasNext()) {
-            FrameworkAdapter a = it.next();
-            if (walaAlgs.contains(a.getCgAlgName())) {
-                it.remove();
-            }
-        }
-
-        new CSVReporter(Constants.FRAMEWORK_COMPARISON_CSV_NAME, "").writeFrameworkMetricsToFile(
-                new CompareFrameworks().compareFrameworks(adapters)
-        );
-    }
-
     public void execute() throws FileNotFoundException {
         for (FrameworkAdapter adapter: frameworkAdapters){
             LOG.info("Executing the framework adapter of: " + adapter.getFrameworkName() + "" +
                     ", CG algorithm: " + adapter.getCgAlgName());
             adapter.evaluate();
         }
-        compareFrameworks(frameworkAdapters);
     }
 
     public static void main(String...args) throws ParseException, FileNotFoundException {
